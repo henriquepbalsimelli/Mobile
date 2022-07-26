@@ -15,6 +15,15 @@ class MainActivity : Activity() {
         )
         view.setText("Cesta de frutas")
         // a partir do R eu consigo acessar tudo que eu tenho na pasta res
+        // Abaixo estou me comunicando com a view (bind de views)
         setContentView(R.layout.activity_main)
+        val nome = findViewById<TextView>(R.id.nome)
+        nome.text = "Cesta de Frutas"
+
+        val descricao = findViewById<TextView>(R.id.descricao)
+        descricao.text = "Laranja mecâninca"
+
+        val valor = findViewById<TextView>(R.id.constraint)
+        valor.text = "R$19,00"
     }
 }
