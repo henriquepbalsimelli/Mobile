@@ -1,6 +1,6 @@
 package com.example.firstappkotlin.ui.activity
 
-import android.app.Activity
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -9,7 +9,9 @@ import com.example.firstappkotlin.model.Produto
 import com.example.firstappkotlin.ui.recyclerview.adapter.ListaProdutosAdapter
 import java.math.BigDecimal
 
-class MainActivity : Activity() {
+class MainActivity : AppCompatActivity() {
+    // Activity pode gerar imcompatibilidade, pois herda sempre do skd mais novo do Android
+    // Pra isso usamos o AppCompatActivity, que vem do AndroidX
 
     override fun onCreate(savedInstanceState: Bundle?) {
         // a partir do R eu consigo acessar tudo que eu tenho na pasta res
