@@ -8,16 +8,37 @@ import android.widget.Button
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import com.example.firstappkotlin.R
+import com.example.firstappkotlin.model.Produto
+import java.math.BigDecimal
 
 class FormularioProdutoActivity : AppCompatActivity(R.layout.activity_formulario_produto) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val botaoSalvar = findViewById<Button>(R.id.botao_salvar)
+        val botaoSalvar = findViewById<Button>(R.id.botao_salvar)//processo de binding
         botaoSalvar.setOnClickListener {
             val campoNome = findViewById<EditText>(R.id.nome)
             val nome = campoNome.text.toString()
-            Log.i("FormularioProduto", "Oncreate: $nome")
+
+            val campoDescricao = findViewById<EditText>(R.id.descricao)//processo de binding
+            val descricao = campoDescricao.text.toString()
+
+            val campoValor = findViewById<EditText>(R.id.valor) //processo de binding
+            val valorEmTexto = campoValor.text.toString()
+
+            val valor = if(valorEmTexto.isBlank()){
+                BigDecimal.ZERO
+            }else{
+                BigDecimal(valorEmTexto)
+            }
+
+            val produtoNovo = Produto(
+                nome = nome,
+                descricao = descricao,
+                valor = valor
+            )
+
+            Log.i("FormularioProduto", "Oncreate: $produtoNovo")
         }
     }
 }
