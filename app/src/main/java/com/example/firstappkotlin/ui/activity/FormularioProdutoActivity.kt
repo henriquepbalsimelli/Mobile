@@ -1,13 +1,12 @@
 package com.example.firstappkotlin.ui.activity
 
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.util.Log
-import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import com.example.firstappkotlin.R
+import com.example.firstappkotlin.dao.ProdutosDao
 import com.example.firstappkotlin.model.Produto
 import java.math.BigDecimal
 
@@ -39,6 +38,11 @@ class FormularioProdutoActivity : AppCompatActivity(R.layout.activity_formulario
             )
 
             Log.i("FormularioProduto", "Oncreate: $produtoNovo")
+            val dao = ProdutosDao()
+
+            dao.adiciona(produtoNovo)
+            Log.i("FormularioProduto", "Oncreate: ${dao.buscaTodos()}")
+            finish()
         }
     }
 }
