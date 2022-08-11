@@ -1,5 +1,6 @@
 package com.example.firstappkotlin.ui.activity
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -7,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.firstappkotlin.R
 import com.example.firstappkotlin.model.Produto
 import com.example.firstappkotlin.ui.recyclerview.adapter.ListaProdutosAdapter
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import java.math.BigDecimal
 
 class MainActivity : AppCompatActivity() {
@@ -42,6 +44,13 @@ class MainActivity : AppCompatActivity() {
             ),
         ))
         // Posso colocar o layout manager aqui ou la no layout com: app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        recyclerview.layoutManager = LinearLayoutManager(this)
+
+        val fab = findViewById<FloatingActionButton>(R.id.floatingActionButton2)
+        fab.setOnClickListener{
+            val intent = Intent(this, FormularioProdutoActivity::class.java)
+            startActivity(intent)
+        }
+        // Padrão DAO - Data access object
+
     }
 }
